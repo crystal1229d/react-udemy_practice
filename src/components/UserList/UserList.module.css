@@ -1,0 +1,14 @@
+.users_list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1.0rem;
+    list-style: none;
+    background: #FFF;
+    border-radius: 10px;
+}
+
+.users_list li {
+    padding: 0.5rem 1.0rem;
+    border: 1px solid lightgray;
+}

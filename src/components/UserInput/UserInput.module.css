@@ -1,0 +1,41 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 1.0rem 0;
+    background: #FFF;
+    border-radius: 10px;
+}
+
+.form_control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.form_control > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form_control label {
+    font-weight: bold;
+}
+
+.form_control input {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 20rem;
+    max-width: 250px;
+}
+
+/* css module 을 사용하는 경우, 클래스 이름이 계속해서 변하는데 props 로 어떻게 넘기나? */
+.button {
+    margin: 3rem auto;
+    border-radius: 10px;
+}
