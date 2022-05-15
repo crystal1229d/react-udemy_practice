@@ -19,6 +19,26 @@ const UserInput = props => {
   const formSubmitHandler = (event) => {
     event.preventDefault()
 
+    console.log(EnteredName.trim().length*1, EnteredAge.toString().trim()*1) 
+
+    // 유효성 검사
+    if (EnteredName.trim().length*1 === 0 && EnteredAge.toString().trim().length*1 === 0) {
+      props.setIsInputValid({
+        isValid: false,
+        invalidReason : 'Please enter a valid name and age (non-empty values).' 
+      })
+      return
+    }
+
+    if (EnteredAge < 0) {
+      props.setIsInputValid({
+        isValid: false,
+        invalidReason : 'Please Enter...'
+      })
+      return
+    }
+
+    // 데이터 생성
     let today = getTodayDateTime()
     let uniqueId = `${today}${Math.floor(Math.random() * 101).toString()}`
 
@@ -57,11 +77,11 @@ const UserInput = props => {
       <div className={styles.form_control}>
         <div>
           <label>Username</label>
-          <input type='text' onChange={nameInputChangeHandler} />
+          <input type='text' onChange={nameInputChangeHandler} value={EnteredName} />
         </div>
         <div>
           <label>Age (Years)</label>
-          <input type='number' onChange={ageInputChangeHandler} />
+          <input type='number' onChange={ageInputChangeHandler} value={EnteredAge} />
         </div>
       </div>
       <Button className={styles.button}>Add User</Button>

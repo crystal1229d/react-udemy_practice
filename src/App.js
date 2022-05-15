@@ -4,8 +4,15 @@ import UserList from './components/UserList/UserList';
 import Card from './components/UI/Card/Card';
 
 import styles from './App.module.css'
+import AlertModal from './components/AlertModal/AlertModal';
+import Button from './components/UI/Button/Button';
 
 const App = () => {
+
+  const [IsInputValid, setIsInputValid] = useState({
+    isValid: true,
+    invalidReason: ''
+  })
 
   const [Users, setUsers] = useState([
     { id:'20220514160001', name: 'crystal', age: 26 },
@@ -37,12 +44,25 @@ const App = () => {
     } 
 
     return content
-  }) ()
+  })()
+  
+  const renderInvalidInputModal = (() => {
+    let content = (
+      <AlertModal>
+        <div>Invalid Input</div>
+        <div><p>{IsInputValid.invalidReason}</p></div>
+        <Button>Okay</Button>
+      </AlertModal>
+    )
+
+    return content
+  })()
 
   return (
     <div> 
+      {!IsInputValid && <AlertModal>{renderInvalidInputModal}</AlertModal>}
         <Card className={styles.user_form}>
-          <UserInput onAddUser={addUserHandler} />
+        <UserInput onAddUser={addUserHandler} setIsInputValid={setIsInputValid} />
         </Card>
         <Card className={styles.user_list}>
           { renderUserList }
