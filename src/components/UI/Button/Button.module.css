@@ -1,0 +1,25 @@
+.button {
+    --default-button-color: #4f005f;
+    --active-button-color: #741188;
+    --default-text-color: #FFF;
+}
+
+.button {
+    font: inherit; 
+    background: var(--default-button-color);
+    border: var(--default-button-color);
+    border-radius: 3px;
+    color: var(--default-text-color);
+    padding: 0.25rem 1rem;
+    cursor: pointer;
+}
+
+.button:hover, 
+.button:active {
+    background: var(--active-button-color);
+    border-color: var(--active-button-color);
+}
+
+.button:focus {
+    outline: none;
+}
