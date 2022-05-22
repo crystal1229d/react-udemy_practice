@@ -4,7 +4,7 @@ import Button from '../UI/Button/Button'
 import Card from '../UI/Card/Card'
 import ErrorModal from '../UI/ErrorModal/ErroModal'
 
-import classes from './AddUser.module.css'
+import classes from './AddUsers.module.css'
 
 const AddUser = (props) => {
 
